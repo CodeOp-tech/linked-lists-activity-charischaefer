@@ -74,7 +74,7 @@ describe("LinkedList", () => {
       expect(linkedList.tail.value).toBe(2);
       expect(linkedList.tail.next).toBe(null);
     });
-    xtest("should return the node that was removed", () => {
+    test("should return the node that was removed", () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
       expect(linkedList.removeFromTail().value).toBe(3);
@@ -98,12 +98,12 @@ describe("LinkedList", () => {
       linkedList.removeFromHead();
       expect(linkedList.head.value).toBe(2);
     });
-    xtest("should return the node that was removed", () => {
+    test("should return the node that was removed", () => {
       linkedList.addToHead(0);
       expect(linkedList.removeFromHead().value).toBe(0);
       expect(linkedList.removeFromHead().value).toBe(1);
     });
-    xtest("should set the head & tail to null if the linked list only contains one node", () => {
+    test("should set the head & tail to null if the linked list only contains one node", () => {
       linkedList.removeFromHead();
       expect(linkedList.head).toBe(null);
       expect(linkedList.tail).toBe(null);
@@ -117,7 +117,7 @@ describe("LinkedList", () => {
       linkedList.addToTail(4);
       expect(linkedList.findNode(3)).toBe(linkedList.head.next.next);
     });
-    xtest('should return "No node found." if the refNodeValue does not exist', () => {
+    test('should return "No node found." if the refNodeValue does not exist', () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
       linkedList.addToTail(4);
@@ -145,12 +145,12 @@ describe("LinkedList", () => {
       expect(linkedList.head.next.next.value).toBe(3);
       expect(linkedList.head.next.next.next.value).toBe(4);
     });
-    xtest("should update the tail if the node is inserted after the current tail", () => {
+    test("should update the tail if the node is inserted after the current tail", () => {
       linkedList.addToTail(2);
       linkedList.insertAfter(2, 3);
       expect(linkedList.tail.value).toBe(3);
     });
-    xtest('should return "No node found." if the refNodeValue does not exist', () => {
+    test('should return "No node found." if the refNodeValue does not exist', () => {
       expect(linkedList.insertAfter(9, 3)).toBe("No node found.");
     });
   });
@@ -161,22 +161,23 @@ describe("LinkedList", () => {
       linkedList.addToTail(3);
       linkedList.addToTail(4);
       linkedList.removeAfter(2);
+
       expect(linkedList.head.next.value).toBe(2);
       expect(linkedList.head.next.next.value).toBe(4);
     });
-    xtest("should return the node that was removed", () => {
+    test("should return the node that was removed", () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
       linkedList.addToTail(4);
       expect(linkedList.removeAfter(2).value).toBe(3);
     });
-    xtest("should update the tail if the node removed was the tail", () => {
+    test("should update the tail if the node removed was the tail", () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
       linkedList.removeAfter(2);
       expect(linkedList.tail.value).toBe(2);
     });
-    xtest('should return "No node found." if the refNodeValue does not exist', () => {
+    test('should return "No node found." if the refNodeValue does not exist', () => {
       expect(linkedList.removeAfter(9)).toBe("No node found.");
     });
   });
